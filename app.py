@@ -28,7 +28,7 @@ st.markdown("<p style='text-align: justify; font-size: 18px; font-family: Arial,
 import streamlit as st
 from PIL import Image
 
-image = Image.open(r'C:\Users\azdin\Documents\Azdine\Projet professionnel\Kaggle - Gender Recognition by Voice\Voice-Gender-Predictor\Picture needed\vecteezy_male-and-female-gender-icon-symbol-vector_7737986.jpg')
+image = Image.open(r'../Voice-Gender-Predictor/Picture needed/vecteezy_male-and-female-gender-icon-symbol-vector_7737986.jpg')
 
 st.image(image)
 # Créer des curseurs pour chaque variable
