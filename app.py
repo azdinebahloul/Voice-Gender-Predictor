@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
 # Charger les données
-data = pd.read_csv(r'C:\Users\azdin\Documents\Azdine\Projet professionnel\Kaggle - Gender Recognition by Voice\Voice-Gender-Predictor\Data\voice.csv')
+data = pd.read_csv(r'./Data/voice.csv')
 data = data[['meanfreq', 'median', 'Q25', 'Q75', 'IQR', 'skew', 'kurt', 'meanfun', 'label']]
 
 # Séparer les features et la variable cible
