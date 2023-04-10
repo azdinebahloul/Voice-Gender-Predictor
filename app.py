@@ -31,15 +31,18 @@ from PIL import Image
 image = Image.open(r'Picture needed/vecteezy_male-and-female-gender-icon-symbol-vector_7737986.jpg')
 
 st.image(image)
+st.markdown("<p style='text-align: justify; font-size: 18px; font-family: Arial, sans-serif;'>💡Typically, individuals with an average fundamental frequency less than 0.14 and an interquartile range greater than 0.07 are males.</p>",unsafe_allow_html=True)
+
 # Créer des curseurs pour chaque variable
-meanfreq = st.slider("Meanfreq", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
-median = st.slider("Median", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
-Q25 = st.slider("Q25", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
-Q75 = st.slider("Q75", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
-IQR = st.slider("IQR", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
-skew = st.slider("Skew", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
-kurt = st.slider("Kurt", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
-meanfun = st.slider("Meanfun", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+meanfreq = st.slider("Mean frequency (in kHz)", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+median = st.slider("Median frequency (in kHz)", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+Q25 = st.slider("First quantile (in kHz)", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+Q75 = st.slider("Third quantile (in kHz)", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+IQR = st.slider("Interquantile range (in kHz)", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+skew = st.slider("Skewness", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+kurt = st.slider("Kurtosis", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+meanfun = st.slider("Average of fundamental frequency measured across acoustic signal", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+
 
 input_data = {'meanfreq': meanfreq, 'median': median, 'Q25': Q25,
               'Q75': Q75, 'IQR': IQR, 'skew': skew, 'kurt': kurt, 'meanfun': meanfun}
@@ -50,10 +53,10 @@ prediction = rfc.predict(input_df)
 
 
 if prediction[0] == 'female':
-    st.markdown("<h2 style='font-size:18px; font-family: Arial,sans-serif;'>The gender of this voice is :</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='font-size:18px; font-family: Arial,sans-serif;'>Predicted gender :</h2>", unsafe_allow_html=True)
     st.write(f"<h2 style='color: pink; font-size:18px; font-family: Arial'>{prediction[0]}</h2>", unsafe_allow_html=True)
 else:
-    st.markdown("<h2 style='font-size:18px; font-family: Arial,sans-serif;'>The gender of this voice is :</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='font-size:18px; font-family: Arial,sans-serif;'>Predicted gender :</h2>", unsafe_allow_html=True)
     st.write(f"<h2 style='color: #ADD8E6; font-size:18px; font-family: Arial'>{prediction[0]}</h2>", unsafe_allow_html=True)
 
 
